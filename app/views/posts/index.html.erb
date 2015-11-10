@@ -2,7 +2,7 @@
 
 <h1>Listing Posts</h1>
 
-<table>
+<table id="posts">
   <thead>
     <tr>
       <th>Content</th>
@@ -12,16 +12,13 @@
 
   <tbody>
     <% @posts.each do |post| %>
-      <tr>
-        <td><%= post.content %></td>
-        <td><%= link_to 'Show', post %></td>
-        <td><%= link_to 'Edit', edit_post_path(post) %></td>
-        <td><%= link_to 'Destroy', post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+      <%= render post %>
     <% end %>
   </tbody>
 </table>
 
 <br>
-
-<%= link_to 'New Post', new_post_path %>
+<h2> Post Form </h2>
+<div id="form">
+  <%= render partial: "form" %>
+</div>
